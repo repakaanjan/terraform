@@ -1,0 +1,12 @@
+variable "gcp_project_id" {}
+variable "provider_region" {}
+variable "vpc_name" {}
+variable "app_subnet_name" {}
+variable "app_subnet_cidr" {}
+variable "subnet_region" {}
+variable "db_subnet_name" {}
+variable "db_subnet_cidr" {}
+variable "host_subnet_name" {}
+variable "host_subnet_cidr" {}
+variable "identity_subnet_name" {}
+variable "identity_subnet_cidr" {}
