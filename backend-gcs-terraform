@@ -1,0 +1,37 @@
+provider "google" {
+ credentials = "${file("credentials.json")}"
+ project     = "rare-attic-259807"
+ region      = "us-east1"
+}
+resource "google_compute_instance" "default" {
+  name         = "devopscube-demo-instance"
+  machine_type = "f1-micro"
+  zone         = "us-east1-b"
+  tags         = ["foo", "bar"]
+  boot_disk {
+    initialize_params {
+      image = "centos-7-v20191121"
+    }
+  }
+
+  network_interface {
+
+    network = "default"
+    //subnetwork_project = "${var.host_project}"
+    access_config {
+      //nat_ip       = "${google_compute_address.reserveip.address}"
+      //network_tier = "PREMIUM"
+    }
+  }
+
+  metadata = {
+    foo = "bar"
+  }
+}
+terraform {
+  backend "gcs" {
+    bucket = "gcs-bucket123"
+    prefix = "demo"
+    credentials = "credentials.json"
+  }
+}
