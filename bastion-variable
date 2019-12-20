@@ -1,0 +1,35 @@
+variable "bastion_key_path" {
+  description = "My public ssh key"
+   default = "/root/.ssh/id_rsa"
+}
+variable "openshift_key_path" {
+  description = "My public ssh key"
+   default = "/root/.ssh/id_rsa"
+}
+variable "gcp_region" {
+  description = "Google Compute Platform region to launch servers."
+  default     = "europe-west1"
+}
+variable "gcp_project" {
+  description = "Google Compute Platform project name."
+  default     = "cloudglobaldelivery-1000135575"
+}
+variable "gcp_zone" {
+  type = "string"
+  default = "europe-west1-b"
+  description = "The zone to provision into"
+}
+variable "gcp_amis" {
+  default = "centos-7-v20181210"
+}
+variable "vpc_public" {
+  default = "10.0.0.0/24"
+  description = "the vpc public cdir range"
+}
+variable "vpc_private" {
+  default = "10.0.1.0/24"
+  description = "the vpc private cdir range"
+}
+variable "htpasswd" {
+  default = "$apr1$.MaA77kd$Rlnn6RXq9kCjnEfh5I3w/."
+}
